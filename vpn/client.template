@@ -1,0 +1,46 @@
+# client or server
+client
+
+# tun (routed) vs tap (bridged)
+dev tun
+
+# tcp or udp
+proto udp
+
+# server ip port
+remote 127.0.0.1 1194
+
+# resolve openvpn server
+resolv-retry infinite
+
+# don't bind to a specific local port number.
+nobind
+
+# Downgrade privileges after initialization.
+#user openvpn
+#group openvpn
+
+# cryptographic cipher and auth
+cipher AES-256-CBC   # AES
+auth SHA256
+
+# Try to preserve some state across restarts.
+persist-key
+persist-tun
+
+# SSL/TLS root certificate (ca), client certificate (cert) and private key (key).
+#ca ca.crt
+#cert client.crt
+#key client.key
+
+# Verify server certificate 
+remote-cert-tls server
+
+# Enable LZO compression 
+#comp-lzo
+
+# verbosity (0-9)
+verb 3
+
+# Silence repeating messages
+mute 20
